@@ -1,0 +1,39 @@
+body {
+    background-image: url(fond-ecran.jpg);
+    background-size: cover;
+}
+  
+.container {
+    background-color: #0ea6e2;
+    width: 400px;
+    height: 500px;
+    margin: 200px auto;
+    text-align: center;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#city-name {
+    font-size: 24px;
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Elephant', sans-serif;
+}
+
+#temperature {
+    font-size: 36px;
+    color: white;
+    margin: 10px 0;
+}
+
+#description {
+    font-size: 18px;
+    color: white;
+}
