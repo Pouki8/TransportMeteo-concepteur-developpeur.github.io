@@ -19,11 +19,7 @@ body {
 #city-name {
     font-size: 36px;
     color: white;
-    position: absolute;
-    top: 120px;
-    left: 120px;
-    font-weight: bold;
-    text-transform: uppercase;
+    margin-bottom: 10px;
     font-family: 'Elephant', sans-serif;
 }
 
