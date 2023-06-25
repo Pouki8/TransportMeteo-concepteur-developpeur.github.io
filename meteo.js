@@ -5,7 +5,7 @@ fetch('conf.json')
         const city = config.city; // Récupérer le nom de la ville à partir de la configuration
 
         // Appeler l'API météo avec le nom de la ville
-        const apiKey = 'YOUR_API_KEY'; // Remplacer par votre clé d'API météo
+        const apiKey = 'a2aacfdae1f99a5372617b466f045d34'; // clé d'API météo
         const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
         // Récupérer les données météo depuis l'API
