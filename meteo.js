@@ -38,14 +38,12 @@ function watchConfFile() {
   let lastModifiedTime = null;
 
   setInterval(() => {
-    fetch(confFileUrl, { method: 'HEAD' })
-      .then(response => {
-        const currentModifiedTime = response.headers.get('last-modified');
+    fetch(confFileUrl, { cache: 'no-cache' })
+      .then(response => response.json())
+      .then(data => {
+        const city = data.city;
 
-        if (lastModifiedTime === null) {
-          lastModifiedTime = currentModifiedTime;
-        } else if (lastModifiedTime !== currentModifiedTime) {
-          lastModifiedTime = currentModifiedTime;
+        if (city !== undefined && city.trim() !== '') {
           fetchWeatherData();
         }
       })
