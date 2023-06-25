@@ -1,23 +1,25 @@
-fetch("conf.json")
-  .then(response => response.json())
-  .then(data => {
-    const apiKey = data.apiKey;
-    const city = data.city;
+document.addEventListener("DOMContentLoaded", function() {
+  fetch("conf.json")
+    .then(response => response.json())
+    .then(data => {
+      const apiKey = data.apiKey;
+      const city = data.city;
 
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&lang=fr`;
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&lang=fr`;
 
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(data => {
-        updateWeather(data);
-      })
-      .catch(error => {
-        console.log("Une erreur s'est produite lors de la récupération des données météo :", error);
-      });
-  })
-  .catch(error => {
-    console.log("Une erreur s'est produite lors de la récupération de la configuration :", error);
-  });
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          updateWeather(data);
+        })
+        .catch(error => {
+          console.log("Une erreur s'est produite lors de la récupération des données météo :", error);
+        });
+    })
+    .catch(error => {
+      console.log("Une erreur s'est produite lors de la récupération de la configuration :", error);
+    });
+});
 
 function updateWeather(data) {
   const cityName = data.name;
