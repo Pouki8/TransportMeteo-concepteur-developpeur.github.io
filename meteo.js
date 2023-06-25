@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+function fetchWeatherData() {
   fetch("conf.json")
     .then(response => response.json())
     .then(data => {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     .catch(error => {
       console.log("Une erreur s'est produite lors de la récupération de la configuration :", error);
     });
-});
+}
 
 function updateWeather(data) {
   const cityName = data.name;
@@ -30,3 +30,6 @@ function updateWeather(data) {
   document.getElementById("temperature").textContent = `${temperature}°C`;
   document.getElementById("description").textContent = description;
 }
+
+// Appel initial pour charger les données météo lors du chargement de la page
+fetchWeatherData();
