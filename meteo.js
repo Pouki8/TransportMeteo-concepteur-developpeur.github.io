@@ -31,5 +31,32 @@ function updateWeather(data) {
   document.getElementById("description").textContent = description;
 }
 
+// Fonction pour surveiller les changements du fichier conf.json
+function watchConfFile() {
+  const confFileUrl = 'conf.json';
+
+  let lastModifiedTime = null;
+
+  setInterval(() => {
+    fetch(confFileUrl, { method: 'HEAD' })
+      .then(response => {
+        const currentModifiedTime = response.headers.get('last-modified');
+
+        if (lastModifiedTime === null) {
+          lastModifiedTime = currentModifiedTime;
+        } else if (lastModifiedTime !== currentModifiedTime) {
+          lastModifiedTime = currentModifiedTime;
+          fetchWeatherData();
+        }
+      })
+      .catch(error => {
+        console.log("Une erreur s'est produite lors de la récupération du fichier conf.json :", error);
+      });
+  }, 3000); // Vérifie les changements toutes les 3 secondes
+}
+
 // Appel initial pour charger les données météo lors du chargement de la page
 fetchWeatherData();
+
+// Surveiller les changements du fichier conf.json
+watchConfFile();
