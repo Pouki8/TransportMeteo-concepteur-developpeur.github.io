@@ -19,6 +19,7 @@ body {
 #city-name {
     font-size: 100px;
     color: white;
+    text-align: center
     width: 500px;
     margin-bottom: 10px;
 }
