@@ -3,7 +3,7 @@ function fetchWeather() {
   fetch("conf.json")
     .then(response => response.json())
     .then(config => {
-      const city = config.ville; // Récupérer le nom de la ville à partir de la configuration
+      const ville = config.ville; // Récupérer le nom de la ville à partir de la configuration
 
       // Appeler l'API météo avec le nom de la ville
       const apiKey = 'a2aacfdae1f99a5372617b466f045d34'; // clé d'API météo
